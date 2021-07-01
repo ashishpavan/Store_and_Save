@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <script src="app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <!-- Add additional services you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+    <script src="https://kit.fontawesome.com/19dc701cbe.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="nav-bar">
+        <h2><a href="#">E-notepad</a></h2>
+        <ul>
+            <li><a href="#paint" class="logged-in">Paint</a></li>
+            <li><a href="#notepad" class="logged-in">Notepad </a></li>
+            <li><a href="#sign-out" class="logged-in">Sign-out</a></li>
+            <li><a href="#sign-in" class="logged-out">Sign-in</a></li>
+            <li><a href="#log-in" class="logged-out">log-in</a></li>
+        </ul>
+    </div>
+    <div class="sign-up">
+        <form id="signup-form">
+            <div class="input-field">
+                <label for="signup-email">Email address</label>
+                <input type="email" id="signup-email" required>
+            </div>
+            <div class="input-field">
+                <label for="signup-password">Choose password</label>
+                <input type="password" id="signup-password" required>
+            </div>
+            <button id="sign-up-btn">Sign up</button>
+        </form>
+    </div>
+
+    
+    <div class="login">
+        <form id="login-form">
+            <div class="input-field">
+                <label for="login-email">Email address</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="input-field">
+                <label for="login-password">Choose password</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button id="login-btn">Log in</button>
+        </form>
+    </div>
+    <div class="main-content">
+        <div class="top-bar">
+            <select class="fonts">
+                <option value="Arial"> Arial </option>
+                <option value="Sans-serif"> Sans-serif </option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Times New Roman"> Times New Roman</option>
+                <option value="Courier New"> Courier New</option>
+                <option value="Lucida Handwriting"> Lucida Handwriting</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Impact">Impact</option>
+            </select>
+            <input type="number" min="2" max="50" step="2" value="16" class="font-size">
+            <input type="button" value="Bold" class="bold">
+            <input type="button" value="Italics" class="italics">
+            <input type="button" value="underline" class="underline">
+        </div>
+        
+        <textarea id="text" cols="30" rows="10" ></textarea>
+        <div class="bottom-bar">
+            <input type="button" value="Save" id="save">
+            <input type="button" value="Clear" id="clear">
+        </div>
+    </div>
+
+    <div class="field paint">
+        <canvas id="canvas"></canvas>
+        <div class="tools">
+            <button class="button undo" type="button"> <i class="fas fa-undo"></i>  Undo </button>
+            <button class="button redo" type="button"><i class="fas fa-redo"></i>  Redo </button>
+            <button class="button eraser" type="button"><i class="fas fa-eraser"></i>  Eraser </button>
+
+            <button class="button clear" type="button"><i class="fas fa-bath"></i>  Clear </button>
+            <button class="button save" type="button"><i class="fas fa-save"></i>  Save </button>
+
+            
+            <div class="colors">
+                <div class="color-field red" style="background: red" ></div>
+                <div class="color-field blue" style="background: blue"></div>
+                <div class="color-field green" style="background: green" ></div>
+                <div class="color-field yellow" style="background: yellow" ></div>
+                <input type="color" class="color-picker">
+            </div>
+            
+            <input type="range" min="1" max="100" value="2" class="pen-range" >
+            
+        </div>
+        
+    </div>
+</body>
+</html>
